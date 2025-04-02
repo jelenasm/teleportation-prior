@@ -1,6 +1,24 @@
-# This script creates a fully connected posterior network that should be used with a standard map equation for directed networks
-# To run the code from the command line: python3 posterior_directed_network_with_metadata.py network_edgelist.dat metadata.dat $number_of_nodes
-# It assumes that the input network is directed. If the input network is undirected, the input file should contain both (source, target) and (target, source) links.
+"""
+posterior_directed_network_with_metadata.py
+
+This script constructs a fully connected *posterior network* from a given directed network and node metadata.
+The output is formatted for use with the standard map equation for directed networks.
+
+The idea is to regularize the original weighted network with prior link probabilities derived from node metadata,
+and a uniform prior across all nodes, resulting in a fully connected network.
+
+Usage:
+    python3 posterior_directed_network_with_metadata.py <network_edgelist.dat> <metadata.dat> <number_of_nodes>
+
+Arguments:
+    network_edgelist.dat : Input edge list file (format: source target weight)
+    metadata.dat         : Metadata file assigning each node to a group (format: node label)
+    number_of_nodes      : Total number of nodes in the network
+
+Assumptions:
+    - The input network is **directed**.
+    - If the input is undirected, it should include both (source, target) and (target, source) edges explicitly.
+"""
 
 import numpy as np
 import sys
