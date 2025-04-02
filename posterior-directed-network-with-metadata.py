@@ -1,3 +1,7 @@
+# This script creates a fully connected posterior network that should be used with a standard map equation for directed networks
+# To run the code from the command line: python3 posterior_directed_network_with_metadata.py network_edgelist.dat metadata.dat $number_of_nodes
+# It assumes that the input network is directed. If the input network is undirected, the input file should contain both (source, target) and (target, source) links.
+
 import numpy as np
 import sys
 
